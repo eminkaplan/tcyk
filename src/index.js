@@ -4,9 +4,9 @@ const url_KPSPublicYabanciDogrula = process.env.KPSPUBLICYABANCIDOGRULA_URL || "
 const kpspublicyabancidogrula = (params) =>
     Object.keys(params)
         .reduce((str, param) =>
-            str.replace("₺" + param, params[param]), template)
+            str.replace("₺" + param, params[param]), t_KPSPublicYabanciDogrula)
 module.exports = (params) => 
-    post(URL, kpspublicyabancidogrula(params))
+    post(url_KPSPublicYabanciDogrula, kpspublicyabancidogrula(params))
     .then(e => e.text())
     .then(e => {
       const match = e.match("Result>(true|false)</")
